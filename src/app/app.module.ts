@@ -4,12 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './shared/material/material.module';
+import { MaterialModule } from '@app/shared/material/material.module';
+import { ToolbarMenuComponent } from '@app/shared/components/toolbar-menu/toolbar-menu.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ToolbarMenuComponent
   ],
   imports: [
     BrowserModule,
