@@ -14,7 +14,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FlexLayoutModule
   ],
   exports: [
-    ToolbarTitleComponent
+    ToolbarTitleComponent,
+    FlexLayoutModule
   ]
 })
 export class SharedModule { }

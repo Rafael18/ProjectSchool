@@ -7,11 +7,28 @@ import { MyDisciplinesComponent } from './my-disciplines/my-disciplines.componen
 
 const routes: Routes = [
   {
-    path: '', component: UsersComponent, pathMatch: 'prefix', children:[
-      { path: '', pathMatch:'full', redirectTo:'myProfile'},
-      { path: 'myProfile', component: MyProfileComponent},
-      { path: 'myConquests', component: MyConquestsComponent},
-      { path: 'myDisciplines', component: MyDisciplinesComponent}
+    path: '',
+    component: UsersComponent,
+    pathMatch: 'prefix',
+    children:[
+      {
+        path: '',
+        pathMatch:'full',
+        redirectTo:'myProfile'
+      },
+      {
+        path:
+        'myProfile',
+        component: MyProfileComponent
+      },
+      {
+        path: 'myConquests',
+        component: MyConquestsComponent
+      },
+      {
+        path: 'myDisciplines',
+        component: MyDisciplinesComponent
+      }
     ]
   }
 ];
