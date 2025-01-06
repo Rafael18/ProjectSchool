@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
 import { CoursesService } from '@app/services/courses.service';
 import { Category, Course } from '@app/shared/models/course';
-import { debounceTime } from 'rxjs';
+import { debounceTime, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-course-list',
@@ -15,10 +15,11 @@ export class CourseListComponent {
   public courseList : Course[] = [];
   private courseService = inject(CoursesService);
   private fb = inject(FormBuilder);
-
   categoryValue = Object.values(Category)
-
   form!: FormGroup;
+  public sub!: Subscription;
+
+
 
   totalCount: number = 0;
   currentPage: number = 1;
@@ -66,13 +67,13 @@ export class CourseListComponent {
     category: string,
     search: string
   ): void{
-    this.courseService
+    this.sub = this.courseService
     .getCourses(currentPage, pageSize, category, search)
     .subscribe((response: HttpResponse<any>) => {
       this.courseList = response.body as Course[];
       let totalCount = this.courseList.length;
       this.totalCount = totalCount ? Number(totalCount) : 0;
-    })
+    });
   }
 
   public handlePageEvent(e: PageEvent): void{
@@ -85,6 +86,10 @@ export class CourseListComponent {
       this.f.search.value ?? ''
     );
 
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
 }
