@@ -52,7 +52,7 @@ export class AppComponent {
 
   ngAfterContentInit(): void {
     this.breakpointObserver
-        .observe(['(max-width: 600px)'])
+        .observe(['(max-width: 800px)'])
         .subscribe((res) => this.isSmallScreen = res.matches);
   }
 

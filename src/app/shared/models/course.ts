@@ -15,7 +15,7 @@ export enum Category {
   Financas = 'Finanças',
   Psicologia = 'Psicologia',
   Marketing = 'Marketing',
-  Fotogragia = 'Fotogragia',
+  Fotografia = 'Fotografia',
   Escrita = 'Escrita',
   Musica = 'Música',
   CienciasAmbientais = 'Ciências Ambientais',
